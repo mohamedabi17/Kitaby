@@ -16,10 +16,10 @@ SECRET_KEY = 'django-insecure-8%gdmw_u1wyqsnrmy1y192o95@wd@1a#84i!x3cbxqur9&13rq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
-CORS_ORIGIN_ALLOW_ALL = True
+# ALLOWED_HOSTS = ["*"]
+# CORS_ORIGIN_ALLOW_ALL = True
 
-# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -31,7 +31,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'app',
     'api',
-    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,7 +45,7 @@ INSTALLED_APPS = [
 
 
 MIDDLEWARE = [
-    'social_django.middleware.SocialAuthExceptionMiddleware',
+    # 'social_django.middleware.SocialAuthExceptionMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -55,13 +54,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware', 
-   
 ]
-# SOCIAL_AUTH_LOGIN_ERROR_URL = '/'
-# SOCIAL_AUTH_RAISE_EXCEPTIONS = False
-# CORS_ALLOWED_ORIGINS = [
-#     "http://127.0.0.1:8000/getproducts",
-#     "http://127.0.0.1:8000/getcategories",
+SOCIAL_AUTH_LOGIN_ERROR_URL = '/'
+SOCIAL_AUTH_RAISE_EXCEPTIONS = False
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:8000/getproducts",
+    "http://127.0.0.1:8000/getcategories",
     
 ]
 
@@ -206,7 +204,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_EXTRA_DATA = ['first_name', 'last_name']
 
 SOCIAL_AUTH_FACEBOOK_KEY = '1190264474954487'
 SOCIAL_AUTH_FACEBOOK_SECRET = '2f9bcd846ad9b2ce3031165cb7abe4f9'
-SOCIAL_AUTH_FACEBOOK_SCOPE = 'mohamedabi1485@gmail.com'
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
     'fields': 'email, first_name, last_name'
 }
@@ -215,4 +213,4 @@ SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL =  'accounts.UserAccount'
+AUTH_USER_MODEL =  'app.UserAccount'

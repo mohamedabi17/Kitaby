@@ -3,7 +3,7 @@ from rest_framework.decorators import api_view
 from .models import  User,Admin,Categorie,Book,LigneCommande,Client,Paiment,Commande
 # from .serializers import ClientSerializer,BookSerializer
 from rest_framework import status
-from api.serializers import ClientSerializer,CategorieSerializer,BookSerializer
+from .serializers import ClientSerializer,CategorieSerializer,BookSerializer
 # import requests
 # from django.shortcuts import render
 # from django.db import connection
